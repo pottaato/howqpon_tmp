@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+        <title>填寫新客訂購資料</title>
+
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
+
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="form-validation.css" rel="stylesheet">
+        <style>
+            .req {
+                color: red;
+                min-width: 15px;
+                display: inline-block;
+                transform: translate(0px, 0px);
+            }
+        </style>
+    </head>
+
+    <body class="bg-light">
+        <div class="container">
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="https://foodz.howqpon.com/images/howqpon.ico" alt="howqpon-logo" width="72" height="72">
+            <h2>新增客戶資料</h2>
+        </div>
+
+        <div class="row">
+            <div class="col order-md-1">
+            <h4 class="mb-3">客戶資料</h4>
+            <form class="needs-validation" novalidate>
+                <!--<div class="row">-->
+                <div class="mb-3">
+                    <label for="inputCustomerName"><span class="req">*</span>姓名</label>
+                    <input type="text" class="form-control" id="inputCustomerName" required>
+                    <div class="invalid-feedback">
+                        *必須填寫
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputCustomerCompanyName"><span class="req">*</span>公司名稱</label>
+                    <input type="text" class="form-control" id="inputCustomerCompanyName" required>
+                    <div class="invalid-feedback">
+                        *必須填寫
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputCustomerLocation"><span class="req">*</span>公司地址</label>
+                    <input type="text" class="form-control" id="inputCustomerLocation" required>
+                    <div class="invalid-feedback">
+                        *必須填寫
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                <label for="inputCustomerPhone1"><span class="req">*</span>聯絡電話 1</label>
+                <input type="text" inputmode="numeric" class="form-control" id="inputCustomerPhone1" placeholder="0901 234 567" required>
+                <div class="invalid-feedback">
+                    *必須填寫
+                </div>
+                </div>
+
+                <div class="mb-3">
+                <label for="inputCustomerPhone2">聯絡電話 2<span class="text-muted"> (選填)</span></label>
+                <input type="text" inputmode="numeric" class="form-control" id="inputCustomerPhone2" placeholder="1234 5678 #000">
+                </div>
+                <hr class="mb-4">
+
+                <h4 class="mb-3">訂餐資料</h4>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                    <label for="selectCustomerDeliveryType"><span class="req">*</span>送餐方式</label>
+                    <select class="custom-select d-block w-100" id="selectCustomerDeliveryType" required>
+                        <option value="">請選擇送餐方式</option>
+                        <option value="大樓外送桌">大樓外送桌</option>
+                        <option value="樓上外送桌">樓上外送桌</option>
+                        <option value="交給櫃台">交給櫃台</option>
+                        <option value="交給警衛">交給警衛</option>
+                        <option value="面交">面交</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        *必須填寫
+                    </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="selectCustomerLunchBreakDatePart"><span class="req">*</span>午休時段</label>
+                    <select class="custom-select d-block w-100" id="selectCustomerLunchBreakDatePart" required>
+                        <option value="">(ex: 午休 11:00, 10:30~11:00 到餐)</option>
+                        <option value="11:00">11:00</option>
+                        <option value="11:30">11:30</option>
+                        <option value="12:00">12:00</option>
+                        <option value="12:30">12:30</option>
+                        <option value="13:00">13:00</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        *必須填寫
+                    </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="cbkIsNeedReceipt">收據</label>
+                        <select class="custom-select d-block w-100" id="cbkIsNeedReceipt" required>
+                            <option selected>不需要</option>
+                            <option>需要</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            *必須填寫
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="inputCustomerTaxIdNumber">統編<span class="text-muted"> (如果需要收據必填)</span></label>
+                        <input type="text" class="form-control" id="inputCustomerTaxIdNumber">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="cbkIsNeedTableware">餐具</label>
+                        <select class="custom-select d-block w-100" id="cbkIsNeedTableware" required>
+                            <option selected>不需要</option>
+                            <option>需要</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            *必須填寫
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+
+                    </div>
+
+                    <div class="col mb-3">
+                        <label for="selectCustomerPaymentType">付款方式<span class="text-muted"> (全面線上付款)</span></label>
+                        <select class="custom-select d-block w-100" id="selectCustomerPaymentType" required>
+                            <option value="">請選擇付款方式</option>
+                            <option value="LINEpay">LINEpay(一卡通轉帳)</option>
+                            <option value="街口">街口</option>
+                            <option value="台灣pay">台灣pay</option>
+                            <option value="郵局">郵局</option>
+                            <option value="中信">中信</option>
+                            <option value="國泰">國泰</option>
+                            <option value="永豐">永豐</option>
+                            <option value="富邦">富邦</option>
+                            <option value="台新">台新</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            *必須填寫
+                        </div>
+                    </div>
+
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-success btn-lg btn-block" type="submit">下一步</button>
+            </form>
+        </div>
+        </div>
+
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">LINE : @howqpon</p>
+        </footer>
+        </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+  </body>
+</html>
