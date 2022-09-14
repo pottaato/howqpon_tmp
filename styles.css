@@ -642,12 +642,12 @@ progress {
 
 @media (min-width: 576px) {
   .container-sm, .container {
-    max-width: 540px;
+    max-width: 576px;
   }
 }
 @media (min-width: 768px) {
   .container-md, .container-sm, .container {
-    max-width: 720px;
+    max-width: 768px;
   }
 }
 @media (min-width: 992px) {
@@ -4565,7 +4565,7 @@ textarea.form-control-lg {
 }
 
 .card-header {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
@@ -4929,7 +4929,7 @@ textarea.form-control-lg {
   top: 0;
   right: 0;
   z-index: 2;
-  padding: 1.25rem 1rem;
+  padding: 1rem 1rem;
 }
 
 .alert-primary {
@@ -6315,13 +6315,13 @@ textarea.form-control-lg {
 }
 
 .offcanvas-title {
-  margin-bottom: 0;
-  line-height: 1.5;
+  margin-bottom: 0%;
+  line-height: 0.5;
 }
 
 .offcanvas-body {
   flex-grow: 1;
-  padding: 1rem 1rem;
+  padding: 0.75rem 1rem;
   overflow-y: auto;
 }
 

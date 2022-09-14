@@ -84,9 +84,21 @@
                 color: #aaaaaa;
                 opacity: 0.5;
                 cursor: pointer;
+                display: flex;
+                justify-content: end;
             }
 
             .trashbin i:hover {
+                opacity: 1;
+            }
+
+            .plus-minus {
+                color: black;
+                opacity: 0.5;
+                cursor: pointer;
+            }
+
+            .plus-minus:hover {
                 opacity: 1;
             }
 
@@ -100,6 +112,7 @@
                 padding: 1rem 1rem;
                 overflow-y: auto;
                 box-shadow: 0px -1px 3px #cccccc;
+                z-index: 1000;
             }
 
             .white-box {
@@ -128,31 +141,48 @@
             }
 
             .input-q {
-                border: 1px solid #cccccc; 
-                margin: 0px 0px 0.2rem 0px; 
+                border: 0px; 
+                margin: 0px 0px 0px 0px; 
                 padding: 0px 0px; 
-                overflow:visible;
+                overflow: visible;
+            }
+
+            .store-info {
+                border: 1px solid #ff6600;
+                background-color: rgba(255, 102, 0, 0.1);
+                color: black;
+                margin-top: 2.55rem;
+                padding: 0.75rem 1.15rem;
+            }
+
+            .logo-img {
+                min-width: 155px;
+                background-image: url("howqpon-title-logo.png");
+                background-size: 100% 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                object-fit: contain;
+                width: 300px;
+                height: 60px;
+                background-repeat: no-repeat;
             }
         </style>
     </head>
     <body class="container">
         <!--fixed top-->
         <div class="fixed-top">
-            <div class="row py-2 row-cols-3 row-cols-xs-3">
+            <div class="row py-2 row-cols-3 row-cols-sm-3">
                 <!--car (to be animated)-->
-                <div class="col-md-3"> 
+                <div class="col-md-3 col-3"> 
                     <img class="animate__animated animate__fadeInRight" 
-                        width="70px" height="70px" src="meng-bear-transparent.png" alt="mengbear"/>
+                        width="75rem" height="75rem" src="meng-bear-transparent.png" alt="mengbear"/>
                 </div>
                 <!--logo-->
-                <div class="col-md-6 pt-2"> 
-                    <div class="d-flex justify-content-center">
-                    <img
-                    width="250px" height="50px" 
-                    src="howqpon-title-logo.png" alt="howqpon.png">
-                    </div>
+                <div class="col-md-6 pt-2 col-6 d-flex justify-content-center"> 
+                    <div class="logo-img"></div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-3">
                     <!--購物袋-->
                     <div class="d-flex justify-content-end">
                         <button class="btn btn-success btn-lg btn-block mt-2 position-relative"
@@ -163,13 +193,13 @@
                                 <span class="visually-hidden">unread messages</span>
                             </span>                            
                         </button>
-                        <!--內容-->
+                        <!--內容 offcanvas-->
                         <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-                            <div class="offcanvas-header">
-                              <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">購物袋</h3>
+                            <div class="offcanvas-header mt-3">
+                              <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">購物車</h3>
                               <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
-                            <hr class="mb-2">
+                            <hr class="mb-1">
                             <div class="offcanvas-body">
                                 <div class="card sign-up py-2 text-center">
                                     <span>第一次點餐請先&ensp;<strong>點我</strong></span>
@@ -179,75 +209,91 @@
                                 </div>
                                 <hr class="mb-3">
                                 <!--item-->
-                                <div class="row row-cols-4 row-cols-sm-4 row-cols-md-4">
-                                    <!--品名-->
-                                    <div class="col-md-4 col-sm-4 fs-5 ">
-                                        這裡放餐點名最多可以兩行
+                                <!--品名-->
+                                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                        <h5>這裡放餐點名最多可以兩行;這裡放餐點名最多可以兩行;這裡放餐點名最多可以兩行;這裡放餐點名最多可以兩行;</h5>
+                                    </div>
+                                </div>
+                                <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
+                                    <!--price-->
+                                    <div class="col-md-4 col-sm-4 col-4">
+                                        <p class="fs-5">NT&#36; 120</h4>
                                     </div>
                                     <!--quantity-->
-                                    <div class="col-md-4 col-sm-4 col-4">
+                                    <div class="col-md-6 col-sm-6 col-6">
                                         <div class="input-group bootstrap-touchspin">
                                             <span class="input-group-btn">
-                                                <button class="btn btn-default bootstrap-touchspin-down" type="button">-</button>
+                                                <button class="btn btn-default bootstrap-touchspin-down" type="button">
+                                                    <i class="fa-solid fa-minus plus-minus"></i>
+                                                </button>
                                             </span>
                                             <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;">
                                             </span>
-                                            <input type="text" name="" value="1" class="input-qty form-control text-center" style="display: block;">
+                                            <input type="text" value="1" class="input-qty form-control text-center" style="display: block; white-space: nowrap;">
                                             <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
                                             <span class="input-group-btn">
-                                                <button class="btn btn-default bootstrap-touchspin-up" type="button">+</button>
+                                                <button class="btn btn-default bootstrap-touchspin-up" type="button">
+                                                    <i class="fa-solid fa-plus plus-minus"></i>
+                                                </button>
                                             </span>
                                         </div>
                                     </div>
-                                    <!--price-->
-                                    <div class="col-md-3 col-sm-3 col-3">
-                                        <p class="fs-5">NT&#36; 120</h4>
-                                    </div>
                                     <!--del-->
-                                    <div class="col-md-1 col-sm-1 col-1 ps-2 justify-content-end fs-4 trashbin">
+                                    <div class="col-2 col-md-2 col-sm-2 ps-2 pt-2 fs-4 trashbin">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </div>
                                 </div>
                                     <!--desc-->
-                                    <div class="row row-cols-1 row-cols-1">
+                                <div class="row row-cols-1 row-cols-md-1">
+                                    <div class="col-12 col-md-12 col-lg-12">
                                         <input type="text" class="no-outline" placeholder="&plus;&ensp;餐點備註">
                                     </div>
+                                </div>
                                 <hr class="mb-3">
                                 <!--/item-->
 
                                 <!--item-->
-                                <div class="row row-cols-4 row-cols-sm-4 row-cols-md-4">
-                                    <!--item-->
-                                    <div class="col-md-4 col-sm-4 fs-5">
-                                        滑蛋沙爹牛肉飯
+                                <!--品名-->
+                                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                        <h5>這裡放餐點名最多可以兩行;這裡放餐點名最多可以兩行;這裡放餐點名最多可以兩行;這裡放餐點名最多可以兩行;</h5>
+                                    </div>
+                                </div>
+                                <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
+                                    <!--price-->
+                                    <div class="col-md-4 col-sm-4 col-4">
+                                        <p class="fs-5">NT&#36; 120</h4>
                                     </div>
                                     <!--quantity-->
-                                    <div class="col-md-4 col-sm-4 col-4">
+                                    <div class="col-md-6 col-sm-6 col-6">
                                         <div class="input-group bootstrap-touchspin">
                                             <span class="input-group-btn">
-                                                <button class="btn btn-default bootstrap-touchspin-down" type="button">-</button>
+                                                <button class="btn btn-default bootstrap-touchspin-down" type="button">
+                                                    <i class="fa-solid fa-minus plus-minus"></i>
+                                                </button>
                                             </span>
                                             <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;">
                                             </span>
-                                            <input type="text" name="" value="1" class="input-qty form-control text-center" style="display: block;">
+                                            <input type="text" value="1" class="input-qty form-control text-center" style="display: block; white-space: nowrap;">
                                             <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
                                             <span class="input-group-btn">
-                                                <button class="btn btn-default bootstrap-touchspin-up" type="button">+</button>
+                                                <button class="btn btn-default bootstrap-touchspin-up" type="button">
+                                                    <i class="fa-solid fa-plus plus-minus"></i>
+                                                </button>
                                             </span>
                                         </div>
                                     </div>
-                                    <!--price-->
-                                    <div class="col-md-3 col-sm-3">
-                                        <p class="fs-5">NT&#36; 120</h4>
-                                    </div>
                                     <!--del-->
-                                    <div class="col-md-1 col-sm-1 col-1 ps-2 justify-content-end fs-4 trashbin">
+                                    <div class="col-2 col-md-2 col-sm-2 ps-2 pt-2 fs-4 trashbin">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </div>
                                 </div>
                                     <!--desc-->
-                                <div class="row row-cols-1 row-cols-1">
-                                    <input type="text" class="no-outline" placeholder="&plus;&ensp;餐點備註">
+                                <div class="row row-cols-1 row-cols-md-1">
+                                    <div class="col-12 col-md-12 col-lg-12">
+                                        <input type="text" class="no-outline" placeholder="&plus;&ensp;餐點備註">
+                                    </div>
                                 </div>
                                 <hr class="mb-3">
                                 <!--/item-->
@@ -267,14 +313,15 @@
                                 <h1>hello world11</h1>
                                 <div class="white-box"></div>
                             </div>
-                            <div class="offcanvas-footer ">
+                            <!--offcanvas footer-->
+                            <div class="offcanvas-footer">
                                 <div class="row row-cols-2">
                                     <div class="col-md-12 text-muted">
                                         <input type="text" class="no-outline" placeholder="&plus;&ensp;訂單備註">
                                     </div>
                                 </div>
-                                <div class="row row-cols-2 mt-3">
-                                    <div class="col-md-6 fs-3 ">
+                                <div class="row row-cols-2 mt-3" style="white-space: nowrap;">
+                                    <div class="col-md-7 col-7 fs-4 ">
                                         <div class="row">
                                             <div class="col">
                                                 數量&ensp;13000 個 
@@ -282,12 +329,12 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                總計&ensp;NT&#36; 1130000
+                                                總計&ensp;NT&#36; 113000
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 d-grid gap-2 mx-auto">
-                                        <button type="button" class="btn btn-success btn-lg fs-3">訂單確認</button>
+                                    <div class="col-md-5 col-5 d-grid gap-2 mx-auto">
+                                        <button type="button" class="btn btn-success btn-lg fs-3" style="padding: 0.4rem; margin: 0px;">訂單確認</button>
                                     </div>
                                 </div>
                             </div>
@@ -307,14 +354,14 @@
                         <div class="text-white text-center">
                             <h1 class="display-4 fw-bolder">九月茶餐廳</h1> <!--之後要改-->
                             <p class="lead fw-normal mb-0"><strong>公休日：無公休日</strong></p> <!--之後要改-->
-                            <div class="row mt-3">
+                            <div class="row mt-3 ms-1 me-1">
                                 <div class="col">
-                                    <label>訂購人姓名</label>
-                                    <input type="text" class="form-control" placeholder="訂購人姓名" required>
+                                    <label>訂購人</label>
+                                    <input type="text" class="form-control" placeholder="請填姓名" required>
                                 </div>
                                 <div class="col">
-                                    <label>日期</label>
-                                    <input type="date" class="form-control" placeholder="日期" required>
+                                    <label>外送日期</label>
+                                    <input type="date" class="form-control" placeholder="2022/09/09" required>
                                 </div>
                             </div>
                         </div>
@@ -323,24 +370,35 @@
             </div>
         </header>
 
+        <!--information-->
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 mt-0">
+            <div class="col-12 col-sm-12 col-md-6">
+                <div class="card store-info ">
+                    1. 這裏放注意事頂<br>
+                    2. 這裏放注意事頂 ; 注意事頂<br>
+                    3. 這裏放注意事頂 ; 注意事頂 ; 注意事頂<br>
+                    4. 這裏放注意事頂 ; 注意事頂 ; 注意事頂
+                </div>
+            </div>
+        </div>
         <!--=== 菜單 ===-->
-        <main class="bg-light py-5">
+        <main class="bg-light pb-5 pt-4">
             <div class="row gx-4 gx-lg-5 py-3 row-cols-2 row-cols-md-2 row-cols-lg-4 justify-content-center">
                 <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -350,21 +408,21 @@
                     </div>
                 </div>
                 <!--/item-->
-                <!--change on progress-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -373,22 +431,22 @@
                         </div>
                     </div>
                 </div>
-                <!--/change on progress-->
-                <!--change on progress-->
+                <!--/item-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -397,21 +455,22 @@
                         </div>
                     </div>
                 </div>
-                <!--/change on progress-->
+                <!--/item-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -420,20 +479,22 @@
                         </div>
                     </div>
                 </div>
+                <!--/item-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -442,20 +503,22 @@
                         </div>
                     </div>
                 </div>
+                <!--/item-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -464,20 +527,22 @@
                         </div>
                     </div>
                 </div>
+                <!--/item-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -486,20 +551,22 @@
                         </div>
                     </div>
                 </div>
+                <!--/item-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -508,20 +575,22 @@
                         </div>
                     </div>
                 </div>
+                <!--/item-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -530,20 +599,22 @@
                         </div>
                     </div>
                 </div>
+                <!--/item-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -552,20 +623,22 @@
                         </div>
                     </div>
                 </div>
+                <!--/item-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -574,20 +647,22 @@
                         </div>
                     </div>
                 </div>
+                <!--/item-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -596,20 +671,22 @@
                         </div>
                     </div>
                 </div>
+                <!--/item-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -618,20 +695,22 @@
                         </div>
                     </div>
                 </div>
+                <!--/item-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -640,20 +719,22 @@
                         </div>
                     </div>
                 </div>
+                <!--/item-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -662,20 +743,22 @@
                         </div>
                     </div>
                 </div>
+                <!--/item-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -684,20 +767,22 @@
                         </div>
                     </div>
                 </div>
+                <!--/item-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -706,20 +791,22 @@
                         </div>
                     </div>
                 </div>
+                <!--/item-->
+                <!--item-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
                     <div class="card h-100">
                         <div class="card-body p-3">
-                            <h5 class="fw-bolder">招牌便當</h5> <!--之後要改-->
+                            <h5 class="fw-normal">招牌便當</h5> <!--之後要改-->
+                            <h3 class="lead">NT&#36; 110</h3>
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3">
-                                <div class="col-lg-6 col-md-5 col-sm-4 col-4 pt-2">
-                                    NT&#36; 110
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 input-q">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-5 input-q">
                                     <input type="number" class="no-outline form-control" placeholder="數量" min="1"> 
                                 </div>
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-4 pt-2">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pt-2">
                                     <button class="add-button" data-bs-toggle="tooltip" data-bs-placement="top" title="填數量再按我">
                                         <i class="fa-solid fa-cart-plus fs-5" style="color:#38BA8F"></i>
                                     </button>
@@ -728,6 +815,7 @@
                         </div>
                     </div>
                 </div>
+                <!--/item-->
             </div>
 
         </main>
