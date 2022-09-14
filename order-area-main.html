@@ -133,9 +133,9 @@
     <body class="container">
         <!--fixed top-->
         <div class="fixed-top">
-            <div class="row py-2 row-cols-3 row-cols-xs-3">
+            <div class="row py-2 row-cols-3 row-cols-sm-3">
                 <!--car (to be animated)-->
-                <div class="col-md-3"> 
+                <div class="col-md-3 col-3"> 
                     <img class="animate__animated animate__fadeInRight" 
                         width="75rem" height="75rem" src="meng-bear-transparent.png" alt="mengbear"/>
                 </div>
@@ -143,8 +143,8 @@
                 <div class="col-md-6 pt-2 col-6 d-flex justify-content-center"> 
                     <div class="logo-img"></div>
                 </div>
-                <div class="col-md-3">
-                    <!--購物袋-->
+                <div class="col-md-3 col-3">
+                    <!--購物車-->
                     <div class="d-flex justify-content-end">
                         <button class="btn btn-success btn-lg btn-block mt-2 position-relative"
                         data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
@@ -159,9 +159,20 @@
             </div>
         </div> <!--/fixed-top-->
 
+        <!--search input-->
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 py-4">
+            <div class="d-flex align-items-center justify-content-center flex-column">
+                <form class="d-flex">
+                    <input class="form-control me-1" type="search" placeholder="搜尋" aria-label="搜尋">
+                    <button class="btn btn-success" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
 
         <!--=== 菜單 ===-->
-        <main class="bg-light py-5">
+        <main class="bg-light pt-1 pb-5">
             <div class="row gx-4 gx-lg-5 py-3 row-cols-2 row-cols-md-2 row-cols-lg-4 justify-content-center" id="cards-container">    
                 <!--晴光-->
                 <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
