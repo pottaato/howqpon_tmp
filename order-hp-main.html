@@ -179,7 +179,7 @@
                         width="75rem" height="75rem" src="meng-bear-transparent.png" alt="mengbear"/>
                 </div>
                 <!--logo-->
-                <div class="col-md-6 pt-2 col-6 d-flex justify-content-center"> 
+                <div class="col-md-6 pt-2 col-6 d-flex justify-content-center" style="object-fit:contain;"> 
                     <div class="logo-img"></div>
                 </div>
                 <div class="col-md-3 col-3">
@@ -193,7 +193,7 @@
                                 <span class="visually-hidden">unread messages</span>
                             </span>                            
                         </button>
-                        <!--內容 offcanvas-->
+                        <!--內容-->
                         <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
                             <div class="offcanvas-header mt-3">
                               <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">購物車</h3>
@@ -347,7 +347,11 @@
             <!--=== title card ===-->
             <div class="bg-image">
                 <!--bg img-->
-                <img src="jiu-yue-cha.jpg" class="w-100" style="width: 100%; height: 357px;" alt="九月茶餐廳.jpg"/> <!--之後要改-->
+                <picture>
+                    <source media="(max-width:500px)" alt="bg-sm" srcset="da-dao-cheng-sm.jpg"/> <!--之後要改-->
+                    <img src="jiu-yue-cha.jpg" alt="九月茶餐廳.jpg" class="w-100" 
+                    style="width: 100%; height: 357px; object-fit: cover;" /> <!--之後要改-->
+                </picture>
                 <!--/bg img-->
                 <div class="mask" style="background-color: rgba(0, 0, 0, 0.3)">
                     <div class="d-flex justify-content-center align-items-center h-100">
