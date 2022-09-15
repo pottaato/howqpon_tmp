@@ -81,7 +81,7 @@
             }
 
             .store-card:hover {
-                background-color: rgba(136, 136, 136, 0.1);
+                background-color: rgba(136, 136, 136);
             }
 
             input {
@@ -128,6 +128,39 @@
                 background-repeat: no-repeat;
             }
 
+            .autocomplete {
+                position: relative;
+                display: inline-block;
+                margin-right: 0.25rem;
+            }
+
+            .autocomplete-items {
+                position: absolute;
+                border: 1px solid #888888;
+                border-top: 0px;
+                border-bottom: 0px;
+                top: 100%;
+                left: 0;
+                right: 0;
+                z-index: 99;
+            }
+
+            .autocomplete-items div {
+                padding: 1.5rem;
+                cursor: pointer;
+                background-color: #fff;
+                border-bottom: 1px solid #888888;
+            }
+
+            .autocomplete-items div:hover {
+                background-color: #eeeeee;
+                font-weight: 800;
+            }
+
+            .autocomplete-active {
+                background-color: #eeeeee  !important;
+                font-weight: 800 !important;
+            }
         </style>
     </head>
     <body class="container">
@@ -162,8 +195,11 @@
         <!--search input-->
         <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 py-4">
             <div class="d-flex align-items-center justify-content-center flex-column">
-                <form class="d-flex">
-                    <input class="form-control me-1" type="search" placeholder="搜尋" aria-label="搜尋">
+                <form class="d-flex" autocomplete="off">
+                    <div class="autocomplete">
+                    <input class="form-control" type="search" 
+                    id="searchInput" name="searchStore" placeholder="搜尋" aria-label="搜尋">
+                    </div>
                     <button class="btn btn-success" type="submit">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
@@ -321,17 +357,17 @@
                 <hr class="mb-3">
                 <div class="store-card text-center">
                     <div class="fw-bolder">九月茶餐廳</div>
-                    <div style="color: #888888;">外送平日一到五</div>
+                    <div style="color: #888888;"></div>
                 </div>
                 <hr class="mb-3">
                 <div class="store-card text-center">
                     <div class="fw-bolder">九月茶餐廳</div>
-                    <div style="color: #888888;">外送平日一到五</div>
+                    <div style="color: #ff6600;">今天公休</div>
                 </div>
                 <hr class="mb-3">
                 <div class="store-card text-center">
                     <div class="fw-bolder">九月茶餐廳</div>
-                    <div style="color: #888888;">外送平日一到五</div>
+                    <div style="color: #888888;">公休 : 周 n</div>
                 </div>
                 <hr class="mb-3">
             </div>
@@ -343,7 +379,10 @@
             <div class="container"><p class="m-0 text-center text-white"><i class="fa fa-copyright" aria-hidden="true"></i> Howqpon</p></div>
         </footer>
     </body>
-    <script>
+
+
+    <!--select card function-->
+    <script> 
         var divItems = document.getElementsByClassName("card-container");
 
         function selected(item) {
@@ -359,6 +398,105 @@
                 item.style.color = "black";
             }
         }
+    </script>
+
+    <!--autocomplete function-->
+    <script>
+        function autocomplete(inp, arr) {
+            var currFocus;
+            inp.addEventListener("input", function(e) {
+                var Divs, match;
+                var val = this.value;
+                closeAllList();
+                if (!val) {
+                    return false;
+                }
+                currFocus = -1;
+                Divs = document.createElement("div");
+                Divs.setAttribute("id", this.id + "autocomplete-list");
+                Divs.setAttribute("class", "autocomplete-items");
+                this.parentNode.appendChild(Divs);
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                        match = document.createElement("div");
+                        match.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                        match.innerHTML += arr[i].substr(val.length);
+                        match.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                        match.addEventListener("click", function(e) {
+                            inp.value = this.getElementsByTagName("input")[0].value;
+                            closeAllList();
+                        });
+                        Divs.appendChild(match);
+                    }
+                }
+            });
+
+            inp.addEventListener("keydown", function(e) {
+                var key = document.getElementById(this.id + "autocomplete-list");
+                if (key) key = key.getElementsByTagName("div");
+                /*down*/
+                if (e.keyCode == 40) {
+                    currFocus++;
+                    addActive(key);
+                }
+                /*up*/
+                else if (e.keyCode == 38) {
+                    currFocus--;
+                    addActive(key);
+                }
+                /*enter*/
+                else  if (e.keyCode == 13) {
+                    e.preventDefault();
+                    if (currFocus > -1) {
+                        if (key) key[currFocus].click();
+                    }
+                }
+            });
+
+            function addActive(key) {
+                if (!key) {
+                    return false;
+                }
+                removeActive(key);
+                if (currFocus >= key.length) {
+                    currFocus = 0;
+                }
+                if (currFocus < 0) {
+                    currFocus = (key.length - 1);
+                }
+                key[currFocus].classList.add("autocomplete-active");
+            }
+
+            function removeActive(key) {
+                for (var i = 0; i < key.length; i++) {
+                    key[i].classList.remove("autocomplete-active");
+                }
+            }
+
+            function closeAllList(elem) {
+                var x = document.getElementsByClassName("autocomplete-items");
+                for (var i = 0; i < x.length; i++) {
+                    if (elem != x[i] && elem != inp) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+
+            document.addEventListener("click", function(e) {
+                closeAllList(e.target);
+            });
+        }
+
+        var storeList = [
+            "宋媽媽火鍋麵", "韓流過境", "老闆屬狗", "阿德叔叔", "米樂", "紅飯捲", "武鋯食堂", "香廣珍燒臘", "阿花蕎麥麵",
+            "精美自助餐", "府城南香", "池上木片便當", "福星廣東粥", "家和素食", "ChickWay", "禾苗素食", "奶油廚房", "老牌張豬腳",
+            "羅本家咖哩", "蔬饗樂", "大稻埕魯肉飯", "九月茶餐廳", "太春小館", "斑魚火作", "綠米", "精美自助餐", "府城南香", "蔬饗樂",
+            "食彩櫻", "八珍", "帶便當", "揪食棧", "松品烏龍麵", "和妹麵食", "韓食村", "雀拾", "洺町日料", "五雞盒飯", "卡洛狸",
+            "廷好餐盒", "池上木片便當", "知己知米", "阿福號三明治", "MF Life", "咖哩給給", "日日食事", "BT Burger",
+            "瑞哥雞肉飯(民生)", "得意排骨", "三禾自助餐", "瑞哥雞肉飯(信義店)", "給力盒子(世貿店)", "給力盒子(松菸店)"  
+        ];
+
+        autocomplete(document.getElementById("searchInput"), storeList);
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
