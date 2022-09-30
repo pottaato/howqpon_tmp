@@ -3,10 +3,9 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>area</title> 
+        <title>[COPY]area</title> 
         <!-- Favicon -->
         <link rel="icon" href="https://foodz.howqpon.com/images/howqpon.ico" type="image/x-icon" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- include Bootstrap -->
         <link href="styles.css" rel="stylesheet" /> 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -84,6 +83,18 @@
                 background-color: rgba(136, 136, 136, 0.1);
             }
 
+            .area-display {
+                position: relative;
+                display: flex;
+                background-color: #fff;
+                background-clip: border-box;
+                border: 0px;
+                margin-top: 1.5rem;
+                margin-bottom: 1.5rem;
+                justify-content: center;
+                align-items: center;
+            }
+
             input {
                 border: hidden;
             }
@@ -117,15 +128,16 @@
 
             .logo-img {
                 min-width: 155px;
-                background-image: url("howqpon-title-logo.png");
-                background-size: 100% 100%;
+                max-width: 300px;
+                height: auto;
+                width: 100%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 object-fit: contain;
-                width: 300px;
-                height: 60px;
                 background-repeat: no-repeat;
+                padding-left: 8px;
+                padding-right: 8px;
             }
 
             .autocomplete {
@@ -174,34 +186,82 @@
                 color: #fff;
                 display: inline-block;
             }
+
+            .area-pill {
+                border: 1px solid #38BA8F;
+                background-color: #fff;
+                color: #38BA8F;
+                border-radius: 1rem;
+                padding: 0.25rem 1rem 0.25rem 1rem;
+                margin-right: 1rem;
+                margin-bottom: 0.25rem;
+                display: inline-block;
+            }
+
+            .area-pill:hover {
+                cursor: pointer;
+                background-color: #38BA8F;
+                color: #fff;
+            }
+
+            .event-img {
+                /*max-width: 300px;*/
+                height: auto;
+                width: 100%;
+                background-repeat: no-repeat;
+            }
+
+            .top-tab {
+                height: 100px;
+                display: flex;
+                align-items: center;
+            }
+
+
+            @media (max-width: 767px){
+                .carousel-inner 
+                .carousel-item >div{display: none}
+                .carousel-inner 
+                .carousel-item >div:first-child{display: block}
+            }
+
+            .carousel-inner 
+            .carousel-item.active, 
+            .carousel-inner 
+            .carousel-item-next, 
+            .carousel-inner 
+            .carousel-item-prev {display: flex}
+
+            @media (min-width: 768px){
+                .carousel-inner 
+                .carousel-item-end.active, 
+                .carousel-inner 
+                .carousel-item-next {transform: translateX(33.3%)}
+                .carousel-inner 
+                .carousel-item-start.active, 
+                .carousel-inner 
+                .carousel-item-prev {transform: translateX(-33.3%)}
+            }
+
+            .carousel-inner 
+            .carousel-item-end, 
+            .carousel-inner 
+            .carousel-item-start {transform: translateX(0)}
         </style>
     </head>
     <body class="container">
         <!--fixed top-->
         <div class="fixed-top">
-            <div class="row py-2 row-cols-3 row-cols-sm-3">
-                <!--car (to be animated)-->
-                <div class="col-md-3 col-3"> 
-                    <img class="animate__animated animate__fadeInRight" 
+            <div class="d-flex justify-content-between top-tab">
+                <div> 
+                    <img class="animate__animated animate__fadeInRight"  
                         width="75rem" height="75rem" src="meng-bear-transparent.png" alt="mengbear"/>
                 </div>
                 <!--logo-->
-                <div class="col-md-6 pt-2 col-6 d-flex justify-content-center"> 
-                    <div class="logo-img"></div>
+                <div style="object-fit: contain;">
+                    <img class="logo-img" src="howqpon-title-logo.png"/>
                 </div>
-                <div class="col-md-3 col-3">
-                    <!--購物車-->
-                    <div class="d-flex justify-content-end">
-                        <button class="btn btn-success btn-lg btn-block mt-2 position-relative"
-                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                99+ <!--之後要改 (correspond to .add-button)-->
-                                <span class="visually-hidden">unread messages</span>
-                            </span>                            
-                        </button>
-                    </div>
-                </div>
+                <div style="width: 5rem;"></div>
             </div>
         </div> <!--/fixed-top-->
 
@@ -213,10 +273,67 @@
                     <input class="form-control" type="search" 
                     id="searchInput" name="searchStore" placeholder="搜尋" aria-label="搜尋">
                     </div>
-                    <button class="btn btn-success" type="submit">
+                    <!--<button class="btn btn-success" type="submit">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
+                    </button>-->
                 </form>
+            </div>
+        </div>
+
+        <!--sliders-->
+        <div class="row justify-content-center">
+            <div id="eventSliders" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-inner text-center" role="listbox">
+                    <div class="carousel-item active">
+                        <div class="col-md-4 px-3" 
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
+                            <img class="event-img" src="promo-card-1.jpg" />
+                            <figcaption>1</figcaption>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-4 px-3"
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
+                            <img class="event-img" src="promo-card-2.png"/>
+                            <figcaption>2</figcaption>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-4 px-3"
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
+                            <img class="event-img" src="promo-card-3.png"/>
+                            <figcaption>3</figcaption>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-4 px-3"
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
+                            <img class="event-img" src="promo-card-1.jpg"/>
+                            <figcaption>4</figcaption>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-4 px-3"
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
+                            <img class="event-img" src="promo-card-1.jpg"/>
+                            <figcaption>5</figcaption>
+                        </div>
+                    </div>                
+                    <div class="carousel-item">
+                        <div class="col-md-4 px-3"
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
+                            <img class="event-img" src="promo-card-1.jpg"/>
+                            <figcaption>6</figcaption>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#eventSliders" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#eventSliders" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
             </div>
         </div>
 
@@ -229,7 +346,7 @@
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <div class="card-container" id="changeBgColor" onclick="selected(this)"> 
                         <div class="card-body pt-5">
-                            <h2 class="fw-bolder text-center">晴光商圈</h2> <!--之後要改-->
+                            <h3 class="fw-bolder text-center">晴光商圈</h2> <!--之後要改-->
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="d-flex justify-content-between" style="opacity: 0.5;">
@@ -245,7 +362,7 @@
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <div class="card-container" id="changeBgColor" onclick="selected(this)"> 
                         <div class="card-body pt-5">
-                            <h2 class="fw-bolder text-center">松江商圈</h2> <!--之後要改-->
+                            <h3 class="fw-bolder text-center">松江商圈</h2> <!--之後要改-->
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="d-flex justify-content-between" style="opacity: 0.5">
@@ -261,7 +378,7 @@
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <div class="card-container" id="changeBgColor" onclick="selected(this)">
                         <div class="card-body pt-5">
-                            <h2 class="fw-bolder text-center">老城商圈</h2> <!--之後要改-->
+                            <h3 class="fw-bolder text-center">老城商圈</h2> <!--之後要改-->
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="d-flex justify-content-between" style="opacity: 0.5">
@@ -277,7 +394,7 @@
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <div class="card-container" id="changeBgColor" onclick="selected(this)">
                         <div class="card-body pt-5">
-                            <h2 class="fw-bolder text-center">小巨蛋商圈</h2> <!--之後要改-->
+                            <h3 class="fw-bolder text-center">小巨蛋商圈</h2> <!--之後要改-->
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="d-flex justify-content-between" style="opacity: 0.5">
@@ -293,7 +410,7 @@
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <div class="card-container" id="changeBgColor" onclick="selected(this)">    
                         <div class="card-body pt-5">
-                            <h2 class="fw-bolder text-center">南西商圈</h2> <!--之後要改-->
+                            <h3 class="fw-bolder text-center">南西商圈</h2> <!--之後要改-->
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="d-flex justify-content-between" style="opacity: 0.5">
@@ -309,7 +426,7 @@
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <div class="card-container" id="changeBgColor" onclick="selected(this)">
                         <div class="card-body pt-5">
-                            <h2 class="fw-bolder text-center">忠孝商圈</h2> <!--之後要改-->
+                            <h3 class="fw-bolder text-center">忠孝商圈</h2> <!--之後要改-->
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="d-flex justify-content-between" style="opacity: 0.5">
@@ -325,7 +442,7 @@
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <div class="card-container" id="changeBgColor" onclick="selected(this)">
                         <div class="card-body pt-5">
-                            <h2 class="fw-bolder text-center">復北圓環商圈</h2> <!--之後要改-->
+                            <h3 class="fw-bolder text-center">復北圓環商圈</h2> <!--之後要改-->
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="d-flex justify-content-between" style="opacity: 0.5">
@@ -341,7 +458,7 @@
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <div class="card-container" id="changeBgColor" onclick="selected(this)">
                         <div class="card-body pt-5">
-                            <h2 class="fw-bolder text-center">信義商圈</h2> <!--之後要改-->
+                            <h3 class="fw-bold text-center">信義商圈</h2> <!--之後要改-->
                         </div>
                         <div class="card-footer pt-0 border-top-0 bg-transparent">
                             <div class="d-flex justify-content-between" style="opacity: 0.5">
@@ -355,8 +472,45 @@
 
         </main>
 
+        <!--offcanvas event details-->
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasEvent" aria-labelledby="offcanvasEvent">
+            <div class="offcanvas-header d-flex justify-content-end mt-2">
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="container">
+                    <div class="mb-4">
+                        <img class="event-img" src="promo-card-1.jpg">
+                    </div>
+                    <div>
+                        <h5 class="py-1">活動名稱</h5>
+                        <p class="py-1">這裡放活動介紹，這裡放活動介紹，這裡放活動介紹，這裡放活動介紹，這裡放活動介紹，這裡放活動介紹，這裡放活動介紹，這裡放活動介紹。</p>
+                    </div>
+                    <hr class="mb-2">
+                    <div class="row pt-3">
+                        <div class="container d-flex justify-content-start">
+                            <p class="area-pill">松江商圈</p>
+                            <p class="area-pill">小巨蛋商圈</p>
+                            <p class="area-pill">復北圓環商圈</p>
+                        </div>
+                    </div>
+                    <div class="store-card">
+                        <div class="lead">店家 1</div>
+                    </div>
+                    <hr class="mb-2"> 
+                    <div class="store-card">
+                        <div class="lead">店家 2</div>
+                    </div>
+                    <hr class="mb-2">
+                    <div class="store-card">
+                        <div class="lead">店家 3</div>
+                    </div>
+                    <hr class="mb-2">
+                </div>
+            </div>
+        </div>
 
-        <!--offcanvas-->
+        <!--offcanvas store list-->
         <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
             <div class="offcanvas-header mt-3">
                 <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">購物車</h3>
@@ -364,10 +518,20 @@
             </div>
             <hr class="mb-2">
             <div class="offcanvas-body">
-                <div class="card sign-up py-2 text-center">
+
+                <!--<div class="card sign-up py-2 text-center">
                     <span>第一次訂購請先 &ensp;<strong>建立客戶資料</strong></span>
                 </div>
+                <hr class="mb-3">-->
+
+                <!--divAreaImage-->
+                <div class="d-flex justify-content-center">
+                    <img src="sample.png" style="max-width: 350px; width:100%; height:auto;">
+                </div>
                 <hr class="mb-3">
+
+
+                <!--divStores-->
                 <div class="store-card">
                     <div>
                         <div class="row">
@@ -386,6 +550,7 @@
                     </div>
                 </div>
                 <hr class="mb-3">
+
                 <div class="store-card">
                     <div>
                         <div class="row">
@@ -426,9 +591,12 @@
         </div>
 
 
+
         <!--footer-->
         <footer class="py-4" style="background-color: #38BA8F;">
-            <div class="container"><p class="m-0 text-center text-white"><i class="fa fa-copyright" aria-hidden="true"></i> Howqpon</p></div>
+            <div class="container"><p class="m-0 text-center text-white">
+                <i class="fa fa-copyright" aria-hidden="true"></i> Howqpon &nbsp; v 2.0
+            </div>
         </footer>
     </body>
 
@@ -550,6 +718,28 @@
 
         autocomplete(document.getElementById("searchInput"), storeList);
     </script>
+
+    <!--card-slider-->
+    <script>
+        var items = document.querySelectorAll(".carousel .carousel-item")
+
+        items.forEach((elem) => {
+            const minPerSlide = 3
+            var next = elem.nextElementSibling
+
+            for (var i = 1; i < minPerSlide; i++) {
+                if (!next) {
+                next = items[0]
+                }
+
+                var cloneChild = next.cloneNode(true)
+                elem.appendChild(cloneChild.children[0])
+                next = next.nextElementSibling
+            }
+        })
+    </script>    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
