@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>[COPY]area</title> 
+        <title>area</title> 
         <!-- Favicon -->
         <link rel="icon" href="https://foodz.howqpon.com/images/howqpon.ico" type="image/x-icon" />
         <!-- include Bootstrap -->
@@ -119,12 +119,6 @@
             .card-container {
                 background-color: #fff;
                 color: black;
-                border-radius: 0.5rem;
-            }
-
-            .card-selected {
-                background-color: #38BA8F;
-                color: #fff;
                 border-radius: 0.5rem;
             }
 
@@ -492,7 +486,7 @@
                     </div>
                     <hr class="mb-2">
                     <div class="row pt-3">
-                        <div class="container d-flex justify-content-start event-areas">
+                        <div class="container d-flex justify-content-start">
                             <div class="area-pill" onclick="sel(this)">松江商圈</div>
                             <div class="area-pill" onclick="sel(this)">小巨蛋商圈</div>
                             <div class="area-pill" onclick="sel(this)">復北圓環商圈</div>
@@ -511,7 +505,7 @@
                     </div>
                     <hr class="mb-2">
                 </div>
-            </div>松江商圈
+            </div>
         </div>
 
         <!--offcanvas store list-->
@@ -625,8 +619,9 @@
     </script>
 
     <script>
-        var pItems = document.getElementsByClassName("event-areas");
+        var pItems = document.getElementsByClassName("area-pill");
         function sel(items) {
+            //alert(pItems.length)
             this.originalState();
             items.style.backgroundColor = "#38ba8f";
             items.style.color = "#fff";
@@ -635,7 +630,7 @@
             for(var i = 0; i < pItems.length; i++) {
                 var items = pItems[i];
                 items.style.backgroundColor = "#fff";
-                items.style.color = "black";
+                items.style.color = "#38ba8f";
             }
         }
     </script>
