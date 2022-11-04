@@ -5560,7 +5560,7 @@ textarea.form-control-lg {
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 1rem 1rem;
   border-bottom: 1px solid #dee2e6;
   border-top-left-radius: calc(0.3rem - 1px);
@@ -5587,7 +5587,7 @@ textarea.form-control-lg {
   flex-wrap: wrap;
   flex-shrink: 0;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 0.75rem;
   border-top: 1px solid #dee2e6;
   border-bottom-right-radius: calc(0.3rem - 1px);
