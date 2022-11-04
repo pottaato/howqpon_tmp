@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>area</title> 
+        <title>[COPY]area</title> 
         <!-- Favicon -->
         <link rel="icon" href="https://foodz.howqpon.com/images/howqpon.ico" type="image/x-icon" />
         <!-- include Bootstrap -->
@@ -123,8 +123,8 @@
             }
 
             .logo-img {
-                min-width: 155px;
-                max-width: 300px;
+                min-width: 100px;
+                max-width: 210px;
                 height: auto;
                 width: 100%;
                 display: flex;
@@ -188,9 +188,9 @@
                 background-color: #fff;
                 color: #38BA8F;
                 border-radius: 1rem;
-                padding: 0.25rem 1rem 0.25rem 1rem;
-                margin-right: 1rem;
-                margin-bottom: 0.25rem;
+                padding: 0.25rem .75rem 0.25rem .75rem;
+                margin-right: .75rem;
+                margin-bottom: .75rem;
                 display: inline-block;
                 cursor: pointer;
             }
@@ -202,9 +202,8 @@
             }
 
             .event-img {
-                /*max-width: 300px;*/
+                max-width: 300px;
                 height: auto;
-                width: 100%;
                 background-repeat: no-repeat;
                 cursor: pointer;
             }
@@ -215,36 +214,12 @@
                 align-items: center;
             }
 
-
-            @media (max-width: 767px){
-                .carousel-inner 
-                .carousel-item >div{display: none}
-                .carousel-inner 
-                .carousel-item >div:first-child{display: block}
+            .nobreak {
+                display: inline-flex;
+                justify-content: center;
+                white-space: nowrap;
+                overflow-x: auto;
             }
-
-            .carousel-inner 
-            .carousel-item.active, 
-            .carousel-inner 
-            .carousel-item-next, 
-            .carousel-inner 
-            .carousel-item-prev {display: flex}
-
-            @media (min-width: 768px){
-                .carousel-inner 
-                .carousel-item-end.active, 
-                .carousel-inner 
-                .carousel-item-next {transform: translateX(33.3%)}
-                .carousel-inner 
-                .carousel-item-start.active, 
-                .carousel-inner 
-                .carousel-item-prev {transform: translateX(-33.3%)}
-            }
-
-            .carousel-inner 
-            .carousel-item-end, 
-            .carousel-inner 
-            .carousel-item-start {transform: translateX(0)}
         </style>
     </head>
     <body class="container">
@@ -253,13 +228,13 @@
             <div class="d-flex justify-content-between top-tab">
                 <div> 
                     <img class="animate__animated animate__fadeInRight"  
-                        width="75rem" height="75rem" src="meng-bear-transparent.png" alt="mengbear"/>
+                        width="75rem" height="75rem" src="new-mengbear.png" alt="mengbear"/>
                 </div>
                 <!--logo-->
                 <div style="object-fit: contain;">
-                    <img class="logo-img" src="howqpon-title-logo.png"/>
+                    <img class="logo-img" src="howqpon_logo.png"/>
                 </div>
-                <div style="width: 5rem;"></div>
+                <div style="width: 5.5rem;"></div>
             </div>
         </div> <!--/fixed-top-->
 
@@ -279,60 +254,33 @@
         </div>
 
         <!--sliders-->
-        <div class="row justify-content-center">
-            <div id="eventSliders" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                <div class="carousel-inner text-center" role="listbox">
-                    <div class="carousel-item active">
-                        <div class="col-md-4 px-3" 
-                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
-                            <img class="event-img" src="promo-card-1.jpg" />
-                            <figcaption>1</figcaption>
-                        </div>
+        <div id="eventSliders" class="carousel carousel-dark slide py-3" data-bs-ride="carousel">
+            <div class="carousel-inner text-center">
+                <div class="carousel-item active" >
+                    <div data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
+                        <img class="event-img" src="promo-card-1.jpg"/>
                     </div>
-                    <div class="carousel-item">
-                        <div class="col-md-4 px-3"
-                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
-                            <img class="event-img" src="promo-card-2.png"/>
-                            <figcaption>2</figcaption>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-md-4 px-3"
-                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
-                            <img class="event-img" src="promo-card-3.png"/>
-                            <figcaption>3</figcaption>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-md-4 px-3"
-                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
-                            <img class="event-img" src="promo-card-1.jpg"/>
-                            <figcaption>4</figcaption>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-md-4 px-3"
-                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
-                            <img class="event-img" src="promo-card-1.jpg"/>
-                            <figcaption>5</figcaption>
-                        </div>
-                    </div>                
-                    <div class="carousel-item">
-                        <div class="col-md-4 px-3"
-                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
-                            <img class="event-img" src="promo-card-1.jpg"/>
-                            <figcaption>6</figcaption>
-                        </div>
-                    </div>-->
                 </div>
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#eventSliders" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#eventSliders" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </button>
+                <div class="carousel-item" >
+                    <div data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
+                        <img class="event-img" src="promo-card-1.jpg"/>
+                    </div>
+                </div>
+                <div class="carousel-item" >
+                    <div data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
+                        <img class="event-img" src="promo-card-1.jpg"/>
+                    </div>
+                </div>
             </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#eventSliders" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#eventSliders" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
 
         <!--=== 菜單 ===-->
@@ -477,8 +425,8 @@
             </div>
             <div class="offcanvas-body">
                 <div class="container">
-                    <div class="mb-4">
-                        <img class="event-img" src="promo-card-1.jpg">
+                    <div class="d-flex justify-content-center mb-4">
+                        <img src="promo-card-1.jpg" width="100%" height="auto">
                     </div>
                     <div>
                         <h5 class="py-1">活動名稱</h5>
@@ -486,10 +434,14 @@
                     </div>
                     <hr class="mb-2">
                     <div class="row pt-3">
-                        <div class="container d-flex justify-content-start">
+                        <div class="container">
                             <div class="area-pill" onclick="sel(this)">松江商圈</div>
                             <div class="area-pill" onclick="sel(this)">小巨蛋商圈</div>
                             <div class="area-pill" onclick="sel(this)">復北圓環商圈</div>
+                            <div class="area-pill" onclick="sel(this)">忠孝商圈</div>
+                            <div class="area-pill" onclick="sel(this)">晴光商圈</div>
+                            <div class="area-pill" onclick="sel(this)">復北圓環商圈</div>
+                            <div class="area-pill" onclick="sel(this)">晴光商圈</div>
                         </div>
                     </div>
                     <div class="store-card">
@@ -588,12 +540,17 @@
             </div>
         </div>
 
-
-
         <!--footer-->
-        <footer class="py-4" style="background-color: #38BA8F;">
-            <div class="container"><p class="m-0 text-center text-white">
-                <i class="fa fa-copyright" aria-hidden="true"></i> Howqpon &nbsp; v 2.0
+        <footer class="pt-4 pb-3" style="background-color: #38BA8F; ">
+            <div class="container d-flex justify-content-between">
+                <div class="mt-2 ps-4 align-middle text-white text-center">
+                    <p><i class="fa fa-copyright" aria-hidden="true"></i> Howqpon &nbsp; v 2.0</p>
+                </div>
+                <div class="pe-4 pt-2">
+                    <a href="https://www.facebook.com/howqunion">
+                        <img class="icon-fb" src="icon_fb.png" height="30px">
+                    </a>
+                </div>
             </div>
         </footer>
     </body>
@@ -735,11 +692,11 @@
     </script>
 
     <!--card-slider-->
-    <script>
+    <!-- <script>
         var items = document.querySelectorAll(".carousel .carousel-item")
 
         items.forEach((elem) => {
-            const minPerSlide = 3
+            const minPerSlide = 1;
             var next = elem.nextElementSibling
 
             for (var i = 1; i < minPerSlide; i++) {
@@ -752,7 +709,7 @@
                 next = next.nextElementSibling
             }
         })
-    </script>    
+    </script>     -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
