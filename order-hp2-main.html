@@ -185,7 +185,7 @@
                 border-radius: 0.5rem;
                 background-color: rgba(255, 102, 0, 0.1);
                 color: black;
-                margin-top: 2.55rem;
+                margin-top: 1rem;
                 padding: 0.75rem 1.15rem;
             }
 
@@ -224,24 +224,24 @@
             }
 
             header {
-                margin-bottom: 1.5rem;
-            }
+                margin-bottom: .75rem;
+            }m
 
-            main {
+            /* main {
                 overflow-y: scroll;
                 scroll-snap-type: y proximity;
                 max-height: 100vh;
-            }
+            } */
 
-            main .store-info {
+            /* main .store-info {
                 scroll-snap-align: start;
-            }
+            } */
 
             .class-offset::before {
                 display: block;
                 width: 100%;
-                height: 135px;
-                margin-top: -135px;
+                height: 160px;
+                margin-top: -160px;
                 content: "hello howqpon";
                 visibility: hidden;
 
@@ -280,7 +280,7 @@
                 </div>
                 <!--ofcanvas shopping cart-->
                 <!--內容-->
-                <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
                     <div class="offcanvas-header mt-3">
                         <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">購物車</h3>
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -481,7 +481,7 @@
         </header>
 
         <!--=== 分類 ===-->
-        <div class="container under-fixed-top nobreak-navbar px-0 mb-4">
+        <div class="container under-fixed-top nobreak-navbar px-0 mb-2">
             <nav class="nav classify-bar">
                 <div class="nobreak-navitem" role="presentation">
                     <a class="nav-link active" href="#a" onclick="sel(this)">
@@ -517,7 +517,7 @@
         </div>
 
         <!--=== 菜單 ===-->
-        <main class="bg-light pb-5 pt-0" data-bs-spy="scroll" data-bs-target="#classSlides">
+        <main class="bg-light pb-5 pt-0">
             <!--information-->
             <div class=" row row-cols-1 row-cols-sm-1 row-cols-md-1 mt-0">
                 <div class="col-12 col-sm-12 col-md-6">
@@ -532,7 +532,7 @@
             
             <!--class a-->
             <div id="a" class="class-offset"></div>
-            <div class="card align-content-center py-4 px-3 mt-4" style="scroll-snap-align: start; padding-left: 9px; padding-right: 9px;"> 
+            <div class="card align-content-center py-4 px-3 mt-4 class-offset"> 
                 <div class="ps-3">
                     <h3 class="fw-bold">飯</h3>
                     <h5 class="text-muted"></h5>
@@ -662,7 +662,7 @@
 
             <!--class b-->
             <div id="b" class="class-offset"></div>
-            <div class="card align-content-center py-4 px-3 mt-4" style="scroll-snap-align: start;"> 
+            <div class="card align-content-center py-4 px-3 mt-4"> 
                 <div class="ps-3">
                     <h3 class="fw-bold">撈麵</h3>
                     <h5 class="text-muted">可換伴麵&nbsp;均附太陽蛋</h5>
@@ -803,7 +803,7 @@
 
             <!--class c-->
             <div id="c" class="class-offset"></div>
-            <div class="card align-content-center py-4 px-3 mt-4" style="scroll-snap-align: start;"> 
+            <div class="card align-content-center py-4 px-3 mt-4"> 
                 <div class="ps-3">
                     <h3 class="fw-bold">仔麵</h3>                    
                     <h5 class="text-muted">可換伴麵&nbsp;均附太陽蛋</h5>
@@ -857,7 +857,7 @@
 
             <!--class d-->
             <div id="d" class="class-offset"></div>
-            <div class="card align-content-center py-4 px-3 mt-4" style="scroll-snap-align: start;"> 
+            <div class="card align-content-center py-4 px-3 mt-4" > 
                 <div class="ps-3">
                     <h3 class="fw-bold">點心</h3>
                     <h5 class="text-muted"></h5>
@@ -882,7 +882,7 @@
 
         <!--ofcanvas food order-->
         <!--內容-->
-        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions2" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasWithBothOptions2" aria-labelledby="offcanvasWithBothOptionsLabel">
             <div class="offcanvas-header mt-3 d-flex justify-content-end">
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
