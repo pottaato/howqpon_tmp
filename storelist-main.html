@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>好客萌 | 首頁</title> 
+        <!-- Favicon -->
+        <link rel="icon" href="https://foodz.howqpon.com/images/howqpon.ico" type="image/x-icon" />
+        <!-- include Bootstrap -->
+        <link href="styles.css" rel="stylesheet" /> 
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+        <!--icon-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+        <script src="https://kit.fontawesome.com/01625d77a1.js" crossorigin="anonymous"></script>
+        <!--animation-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <style>
+            .store-card {
+                position: relative;
+                display: flex;
+                min-width: 0;
+                background-color: #fff;
+                background-clip: border-box;
+                border: 0px;
+                border-radius: 0.5rem;
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+                justify-content: space-between;
+                margin-top: 1.5rem;
+                margin-bottom: 1.5rem;
+                cursor: pointer;
+            }
+
+            .store-card:hover {
+                background-color: rgba(136, 136, 136, 0.1);
+            }
+
+            .area-display {
+                position: relative;
+                display: flex;
+                background-color: #fff;
+                background-clip: border-box;
+                border: 0px;
+                margin-top: 1.5rem;
+                margin-bottom: 1.5rem;
+                justify-content: center;
+                align-items: center;
+            }
+
+            input {
+                border: hidden;
+            }
+
+            .no-outline:focus {
+                outline: none;
+            }   
+
+            .fixed-top {
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                background-color: #fff;
+            }
+
+            .card:hover {
+                border: 1px solid #38BA8F;
+                cursor: pointer;
+            }
+            
+            .card-container {
+                background-color: #fff;
+                color: black;
+                border-radius: 0.5rem;
+            }
+
+            .store-img {
+                width: 100%;
+                max-height: 200px;
+                border-radius: .5rem;
+                object-fit: cover;
+            }
+
+            .store-tag {
+                position: absolute;
+                top: 15px;
+                background-color: #ff6600;
+                color: #fff;
+                padding: .3rem;
+                font-weight: bold;
+                /* box-shadow: 5px 5px 5px #000; */
+                border-bottom-right-radius: .5rem;
+            }
+
+            .other-store-tag {
+                position: absolute;
+                top: 55px;
+                background-color: #ff6600;
+                color: #fff;
+                padding: .3rem;
+                font-weight: bold;
+                /* box-shadow: 5px 5px 5px #000; */
+                border-bottom-right-radius: .5rem;
+            }
+
+            .fav-button {
+                background: none;
+                border: 0;
+                position: absolute;
+                top: 15px;
+                right: 10px;
+                color: #fff;
+                /* text-shadow: 5px 5px 10px #000; */
+                font-size: 25px;
+            }
+
+            .fav-button:hover {
+                cursor: pointer;
+                color: #fff;
+            }
+
+            .fav-button:focus {
+                color: crimson;
+            }
+
+            .logo-img {
+                min-width: 100px;
+                max-width: 210px;
+                height: auto;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                object-fit: contain;
+                background-repeat: no-repeat;
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+            .autocomplete {
+                position: relative;
+                display: inline-block;
+                margin-right: 0.25rem;
+            }
+
+            .autocomplete-items {
+                position: absolute;
+                border: 1px solid #888888;
+                border-top: 0px;
+                border-bottom: 0px;
+                top: 100%;
+                left: 0;
+                right: 0;
+                z-index: 99;
+            }
+
+            .autocomplete-items div {
+                padding: 1.5rem;
+                cursor: pointer;
+                background-color: #fff;
+                border-bottom: 1px solid #888888;
+            }
+
+            .autocomplete-items div:hover {
+                background-color: #eeeeee;
+                font-weight: 800;
+            }
+
+            .autocomplete-active {
+                background-color: #eeeeee  !important;
+                font-weight: 800 !important;
+            }
+
+            .green-pill {
+                border: 0px;
+                border-radius: .5rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                padding-top: 0.25rem;
+                padding-bottom: 0.25rem;
+                margin-bottom: 0.25rem;
+                background-color: #c9f5e5;
+                color: #38BA8F;
+                display: inline-block;
+            }
+
+            .area-pill {
+                border: 1px solid #38BA8F;
+                background-color: #fff;
+                color: #38BA8F;
+                border-radius: 1rem;
+                padding: 0.25rem .75rem 0.25rem .75rem;
+                margin-right: .75rem;
+                margin-bottom: .75rem;
+                display: inline-block;
+                cursor: pointer;
+            }
+
+            .area-pill:hover {
+                cursor: pointer;
+                background-color: #38BA8F;
+                color: #fff;
+            }
+
+            .event-img {
+                object-fit: contain;
+                width: 100%;
+                height: auto;
+                background-repeat: no-repeat;
+                cursor: pointer;
+            }
+
+            .top-tab {
+                height: 100px;
+                display: flex;
+                align-items: center;
+            }
+
+            .nobreak-navbar {
+                white-space: nowrap;
+                overflow-x: auto;
+            }
+
+            .class-icon-container {
+                border: 0;
+                border-radius: .5rem;
+                background-color: #fff;
+                margin: 1rem .1rem;
+                transition: box-shadow .1s;
+            }
+
+            .class-icon {
+                object-fit: contain;
+                height: 100px;
+                width: 160px;
+                transition: transform .1s;
+            }
+
+            .class-icon-container:hover {
+                cursor: pointer;
+                box-shadow: 5px 5px 5px #eee;
+            }
+
+            .class-icon:hover {
+                transform: scale(1.2);
+            }
+
+            .user-button {
+                color: #38BA8F;
+            }
+
+            .user-button:hover {
+                color: darkgreen;
+                cursor: pointer;
+            }
+
+            .classification-offset::before {
+                display: block;
+                width: 100%;
+                height: 100px;
+                margin-top: -100px;
+                content: "hello howqpon";
+                visibility: hidden;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body class="container">
+        <!--fixed top nav-->
+        <nav class="fixed-top">
+            <div class="d-flex justify-content-between top-tab">
+                <div> 
+                    <!-- <img class="animate__animated animate__fadeInRight"  
+                        width="75rem" height="75rem" src="new-mengbear.png" alt="mengbear"/> -->
+                    <a href="https://foodz.howqpon.com/login.html?r=104&openExternalBrowser=1">
+                        <img src="user_profile_default.png" width="55rem" height="55rem" alt="user_profile_pic_default" 
+                        style="border-radius: 50%;">
+                    </a>
+                </div>
+                <!--logo-->
+                <div style="object-fit: contain;">
+                    <img class="logo-img" src="howqpon_logo.png"/>
+                </div>
+                <div style="width: 3.6rem;"></div>
+            </div>
+        </nav> <!--/fixed-top-->
+
+        <!--search bar row-->
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 py-4">
+            <div class="d-flex align-items-center justify-content-center">
+                <form class="d-flex" autocomplete="off">
+                    <div class="autocomplete">
+                    <input class="form-control" type="search" 
+                    id="searchInput" name="searchStore" placeholder="搜尋" aria-label="搜尋">
+                    </div>
+                    <!--<button class="btn btn-success" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>-->
+                </form>
+                <!--show favorite list-->
+                <a href="#favList" class="text-white">
+                    <button class="btn btn-danger"><i class="fa-solid fa-heart"></i>&nbsp;看收藏</button>
+                </a>
+            </div>
+        </div>
+
+        <!--event row-->
+        <div class="row mb-4">
+            <!--left section-->
+            <!--活動-->
+            <div id="eventSliders" class="col-md-6 mb-3 mb-md-0 carousel carousel-dark slide" data-bs-ride="carousel">
+                <!--活動 title-->
+                <div class="row">
+                    <h3 class="fw-bold text-bg-dark"><i class="fa-solid fa-bullhorn" style="color: #ff6600;"></i>&nbsp;最新活動</h3>
+                </div>
+                <!--slide indicator-->
+                <div class="carousel-indicators" style="bottom: -20px;">
+                    <button type="button" data-bs-target="#eventSliders" data-bs-slide-to="0" class="active" aria-current="true" aria-label="slide1"></button>
+                    <button type="button" data-bs-target="#eventSliders" data-bs-slide-to="1" aria-label="slide2"></button>
+                    <button type="button" data-bs-target="#eventSliders" data-bs-slide-to="2" aria-label="slide3"></button>
+                </div>
+
+                <!--carousel content-->
+                <div class="carousel-inner text-center">
+                    <!--first slide-->
+                    <div class="carousel-item active">
+                        <div data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent" >
+                            <img class="event-img" src="promo-card-1.jpg"/>
+                        </div>
+                    </div>
+                    <!--second slide-->
+                    <div class="carousel-item" >
+                        <div data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
+                            <img class="event-img" src="promo-card-1.jpg"/>
+                        </div>
+                    </div>
+                    <!--third slide-->
+                    <div class="carousel-item" >
+                        <div data-bs-toggle="offcanvas" data-bs-target="#offcanvasEvent" aria-controls="offcanvasEvent">
+                            <img class="event-img" src="promo-card-1.jpg"/>
+                        </div>
+                    </div>
+                </div>
+
+                <!--next prev button-->
+                <button class="carousel-control-prev" type="button" data-bs-target="#eventSliders" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#eventSliders" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <!--right section-->
+            <!--新店家 + 新店家-->
+            <div class="col-md-6 bg-light">
+                <!--right top section-->
+                <!--title (newStore)-->
+                <div class="row">
+                    <h3 class="fw-bold text-bg-dark" style="padding-left: 2rem">
+                        <i class="fa-solid fa-star" style="color:gold;"></i>&nbsp;新店家
+                    </h3>
+                </div>
+                <!--newStore carousel-->
+                <div class="carousel carousel-dark slide" id="newStore" data-bs-ride="carousel" data-bs-interval="false">
+                    <!--slide indicator-->
+                    <div class="carousel-indicators" style="bottom: -44px;">
+                        <button type="button" data-bs-target="#newStore" data-bs-slide-to="0" class="active" aria-current="true" aria-label="slide1"></button>
+                        <button type="button" data-bs-target="#newStore" data-bs-slide-to="1" aria-label="slide2"></button>
+                    </div>
+                    <div class="carousel-inner px-3 mb-4">
+                        <!--first slide-->
+                        <div class="carousel-item active">
+                            <!--新店家-->
+                            <div class="row row-cols-1">
+                                <!-- <div class="col-md-4 text-center">
+                                    <img src="mengbear-head.png" class="event-img">
+                                    <figcaption>
+                                        <div class="green-pill">健康餐</div>&nbsp;好客萌好客萌好客萌好客萌好客萌
+                                    </figcaption>
+                                </div> -->
+
+                                <div class="col-md-6">
+                                    <!--店卡-->
+                                    <div class="card h-100"> 
+                                        <div class="mb-1">
+                                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                                            <div class="store-tag">滿100元打9折</div>
+                                            <div class="other-store-tag">活動短説明</div>
+                                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                                        </div>
+                                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                                            <div class="d-flex justify-content-start">
+                                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                                <div>
+                                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div>
+                                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                                    <div class="green-pill">經典便當</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <!--店卡-->
+                                    <div class="card h-100"> 
+                                        <div class="mb-1">
+                                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                                            <div class="store-tag">滿100元打9折</div>
+                                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                                        </div>
+                                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                                            <div class="d-flex justify-content-start">
+                                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                                <div>
+                                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div>
+                                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                                    <div class="green-pill">經典便當</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+
+                        <!--second slide-->
+                        <div class="carousel-item">
+                            <!--新店家-->
+                            <div class="row row-cols-1">
+                                <!-- <div class="col-md-4 text-center">
+                                    <img src="mengbear-head.png" class="event-img">
+                                    <figcaption>
+                                        <div class="green-pill">健康餐</div>&nbsp;好客萌好客萌好客萌好客萌好客萌
+                                    </figcaption>
+                                </div> -->
+
+                                <div class="col-md-6">
+                                    <!--店卡-->
+                                    <div class="card h-100"> 
+                                        <div class="mb-1">
+                                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                                            <div class="store-tag">滿100元打9折</div>
+                                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                                        </div>
+                                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                                            <div class="d-flex justify-content-start">
+                                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                                <div>
+                                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div>
+                                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                                    <div class="green-pill">經典便當</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                    <!--next prev button-->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#newStore" data-bs-slide="prev"
+                    style="left: -20px;">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#newStore" data-bs-slide="next" 
+                    style="right: -20px;">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </button>    
+                </div>
+
+
+                <!--right bottom section-->
+                <!--title (pushStore)-->
+                <div class="row mt-3">
+                    <h3 class="fw-bold" style="padding-left: 2rem">
+                        <i class="fa-solid fa-fire" style="color:crimson"></i>&nbsp;推薦店
+                    </h3>
+                </div>
+                <!--pushStore carousel-->
+                <div class="carousel carousel-dark slide" id="pushStore" data-bs-ride="carousel" data-bs-interval="false">
+                    <!--slide indicator-->
+                    <div class="carousel-indicators" style="bottom: -44px;">
+                        <button type="button" data-bs-target="#pushStore" data-bs-slide-to="0" class="active" aria-current="true" aria-label="slide1"></button>
+                        <button type="button" data-bs-target="#pushStore" data-bs-slide-to="1" aria-label="slide2"></button>
+                    </div>
+                    <div class="carousel-inner px-3 mb-4">
+                        <!--first slide-->
+                        <div class="carousel-item active">
+                            <!--新店家-->
+                            <div class="row row-cols-1">
+                                <div class="col-md-6">
+                                    <!--店卡-->
+                                    <div class="card h-100"> 
+                                        <div class="mb-1">
+                                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                                            <div class="store-tag">滿100元打9折</div>
+                                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                                        </div>
+                                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                                            <div class="d-flex justify-content-start">
+                                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                                <div>
+                                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div>
+                                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                                    <div class="green-pill">經典便當</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <!--店卡-->
+                                    <div class="card h-100"> 
+                                        <div class="mb-1">
+                                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                                            <div class="store-tag">滿100元打9折</div>
+                                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                                        </div>
+                                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                                            <div class="d-flex justify-content-start">
+                                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                                <div>
+                                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div>
+                                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                                    <div class="green-pill">經典便當</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+
+                        <!--second slide-->
+                        <div class="carousel-item">
+                            <!--新店家-->
+                            <div class="row row-cols-1">
+                                <div class="col-md-6">
+                                    <!--店卡-->
+                                    <div class="card h-100"> 
+                                        <div class="mb-1">
+                                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                                            <div class="store-tag">滿100元打9折</div>
+                                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                                        </div>
+                                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                                            <div class="d-flex justify-content-start">
+                                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                                <div>
+                                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div>
+                                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                                    <div class="green-pill">經典便當</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                    <!--next prev button-->
+                    <button class="carousel-control-prev" type="button" 
+                    data-bs-target="#pushStore" data-bs-slide="prev" style="left: -20px;">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" 
+                    data-bs-target="#pushStore" data-bs-slide="next" style="right: -20px;">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </button>    
+                </div>
+            </div>
+        </div>
+
+        <!--=== 分類 ===-->
+        <div class="nobreak-navbar bg-light mb-3 pt-2">
+            <div class="me-2" style="display: inline-flex;">
+                <div class="text-center class-icon-container">
+                    <a href="#百元美食">
+                        <img src="class-icon-sample.png" class="class-icon">
+                        <figcaption class="my-2" style="color: #000;">百元美食</figcaption>
+                    </a>
+                </div>
+            </div>
+            <div class="me-2" style="display: inline-flex;">
+                <div class="text-center class-icon-container">
+                    <img src="class-icon-sample.png" class="class-icon">
+                    <figcaption class="my-2">經典便當</figcaption>
+                </div>
+            </div>
+            <div class="me-2" style="display: inline-flex;">
+                <div class="text-center class-icon-container">
+                    <img src="class-icon-sample.png" class="class-icon">
+                    <figcaption class="my-2">特色餐點</figcaption>
+                </div>
+            </div>
+            <div class="me-2" style="display: inline-flex;">
+                <div class="text-center class-icon-container">
+                    <img src="class-icon-sample.png" class="class-icon">
+                    <figcaption class="my-2">健康餐盒</figcaption>
+                </div>
+            </div>
+            <div class="me-2" style="display: inline-flex;">
+                <div class="text-center class-icon-container">
+                    <img src="class-icon-sample.png" class="class-icon">
+                    <figcaption class="my-2">異國風味</figcaption>
+                </div>
+            </div>
+            <div class="me-2" style="display: inline-flex;">
+                <div class="text-center class-icon-container">
+                    <img src="class-icon-sample.png" class="class-icon">
+                    <figcaption class="my-2">松山精選</figcaption>
+                </div>
+            </div>
+            <div class="me-2" style="display: inline-flex;">
+                <div class="text-center class-icon-container">
+                    <img src="class-icon-sample.png" class="class-icon">
+                    <figcaption class="my-2">蔬素食類</figcaption>
+                </div>
+            </div>
+            <div class="me-2" style="display: inline-flex;">
+                <div class="text-center class-icon-container">
+                    <img src="class-icon-sample.png" class="class-icon">
+                    <figcaption class="my-2">其他</figcaption>
+                </div>
+            </div>
+        </div>
+
+        <!--=== 所有 ===-->
+        <section class="bg-light pt-1 pb-3">
+            <div class="d-flex justify-content-start" style="color: #000;">
+                <h3 class="fw-bold py-2">所有的店家</h3>
+            </div>
+            <div class="row gx-4 gx-lg-5 py-3 row-cols-1 row-cols-md-2 row-cols-lg-4" >    
+                <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                            <div class="store-tag">活動短説明</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="da-dao-cheng-sm.jpg" class="store-img">
+                            <div class="store-tag">活動短説明</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
+                    <!--店卡-->
+                    <div class="card h-100">
+                        <div class="mb-1">
+                            <a href="order-hp2-copy.html">
+                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                            <!-- <div class="store-tag">活動短説明</div> -->
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                            </a>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                            <div class="store-tag">活動短説明</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                            <div class="store-tag">活動短説明</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                            <div class="store-tag">活動短説明</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="da-dao-cheng-sm.jpg" class="store-img">
+                            <div class="store-tag">活動短説明</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                            <div class="store-tag">活動短説明</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                            <div class="store-tag">活動短説明</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+        <!--百元美食-->
+        <section class="bg-light pt-1 pb-3">
+            <hr>
+            <div id="百元美食" class="classification-offset"></div>
+            <div class="d-flex justify-content-start" style="color: #000;">
+                <h3 class="fw-bold py-2">百元美食</h3>
+            </div>
+            <div class="row gx-4 gx-lg-5 py-3 row-cols-1 row-cols-md-2 row-cols-lg-4" >    
+                <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                            <div class="store-tag">活動短説明</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                            <div class="store-tag">活動短説明</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                            <div class="store-tag">活動短説明</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+   
+        <!--收藏-->
+        <section class="bg-light pt-1 pb-3">
+            <hr>
+            <div id="favList" class="classification-offset"></div>
+            <div class="d-flex justify-content-start" style="color: #000;">
+                <h3 class="fw-bold py-2"><i class="fa-solid fa-heart" style="color: crimson;"></i>&nbsp;收藏</h3>
+            </div>
+            <div class="row gx-4 gx-lg-5 py-3 row-cols-1 row-cols-md-2 row-cols-lg-4" >    
+                <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                            <div class="store-tag">活動短説明</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                            <div class="store-tag">活動短説明</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-lg-3 mb-3">
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                            <div class="store-tag">活動短説明</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--=== offcanvas ===-->
+        <!--offcanvas event details-->
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasEvent" aria-labelledby="offcanvasEvent">
+            <div class="offcanvas-header d-flex justify-content-end mt-2">
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="container">
+                    <div class="d-flex justify-content-center mb-4">
+                        <img src="promo-card-1.jpg" width="100%" height="auto">
+                    </div>
+                    <div>
+                        <h5 class="py-1">活動名稱</h5>
+                        <p class="py-1">這裡放活動介紹，這裡放活動介紹，這裡放活動介紹，這裡放活動介紹，這裡放活動介紹，這裡放活動介紹，這裡放活動介紹，這裡放活動介紹。</p>
+                    </div>
+                    <hr class="mb-2">
+                    <!-- <div class="row pt-3">
+                        <div class="container">
+                            <div class="area-pill" onclick="sel(this)">松江商圈</div>
+                            <div class="area-pill" onclick="sel(this)">小巨蛋商圈</div>
+                            <div class="area-pill" onclick="sel(this)">復北圓環商圈</div>
+                            <div class="area-pill" onclick="sel(this)">忠孝商圈</div>
+                            <div class="area-pill" onclick="sel(this)">晴光商圈</div>
+                            <div class="area-pill" onclick="sel(this)">復北圓環商圈</div>
+                            <div class="area-pill" onclick="sel(this)">晴光商圈</div>
+                        </div>
+                    </div> -->
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                            <div class="store-tag">滿100元打9折</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mb-2"> 
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="da-dao-cheng-sm.jpg" class="store-img">
+                            <div class="store-tag">滿100元打9折</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mb-2">
+                    <!--店卡-->
+                    <div class="card h-100"> 
+                        <div class="mb-1">
+                            <img src="jiu-yue-cha-sm.jpg" class="store-img">
+                            <div class="store-tag">滿100元打9折</div>
+                            <button class="fav-button"><i class="fa-solid fa-heart"></i></button>
+                        </div>
+                        <div class="card-footer pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-start">
+                                <div class="lead fs-5 mb-2">好客萌店家的名字可以寫很..</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div><i class="fa-regular fa-dollar-sign"></i>100元起</div>
+                                <div>
+                                    <i class="fa-brands fa-google"></i>&nbsp;4.5
+                                    <i class="fa-sharp fa-solid fa-star" style="color: gold;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="green-pill" style="margin-right: 5px;">輕食</div>
+                                    <div class="green-pill">經典便當</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mb-2">
+                </div>
+            </div>
+        </div>
+
+        <!--footer-->
+        <footer class="pt-4 pb-3" style="background-color: #38BA8F; ">
+            <div class="container d-flex justify-content-between">
+                <div class="mt-2 ps-4 align-middle text-white text-center">
+                    <p>
+                        <i class="fa fa-copyright" aria-hidden="true"></i>
+                        <span id="currentYear"></span>&nbsp;Howqpon
+                    </p>
+                </div>
+                <div class="pe-4 pt-2">
+                    <a href="https://www.facebook.com/howqunion">
+                        <img class="icon-fb" src="icon_fb.png" height="30px">
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </body>
+
+    <!--show current year-->
+    <script>
+        const year = document.getElementById("currentYear");
+        year.textContent = new Date().getFullYear();
+    </script>
+
+    <!-- <script>
+        var pItems = document.getElementsByClassName("area-pill");
+        function sel(items) {
+            //alert(pItems.length)
+            this.originalState();
+            items.style.backgroundColor = "#38ba8f";
+            items.style.color = "#fff";
+        }
+        function originalState() {
+            for(var i = 0; i < pItems.length; i++) {
+                var items = pItems[i];
+                items.style.backgroundColor = "#fff";
+                items.style.color = "#38ba8f";
+            }
+        }
+    </script> -->
+
+    <!--autocomplete function-->
+    <script>
+        function autocomplete(inp, arr) {
+            var currFocus;
+            inp.addEventListener("input", function(e) {
+                var Divs, match;
+                var val = this.value;
+                closeAllList();
+                if (!val) {
+                    return false;
+                }
+                currFocus = -1;
+                Divs = document.createElement("div");
+                Divs.setAttribute("id", this.id + "autocomplete-list");
+                Divs.setAttribute("class", "autocomplete-items");
+                this.parentNode.appendChild(Divs);
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                        match = document.createElement("div");
+                        match.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                        match.innerHTML += arr[i].substr(val.length);
+                        match.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                        match.addEventListener("click", function(e) {
+                            inp.value = this.getElementsByTagName("input")[0].value;
+                            closeAllList();
+                        });
+                        Divs.appendChild(match);
+                    }
+                }
+            });
+
+            inp.addEventListener("keydown", function(e) {
+                var key = document.getElementById(this.id + "autocomplete-list");
+                if (key) key = key.getElementsByTagName("div");
+                /*down*/
+                if (e.keyCode == 40) {
+                    currFocus++;
+                    addActive(key);
+                }
+                /*up*/
+                else if (e.keyCode == 38) {
+                    currFocus--;
+                    addActive(key);
+                }
+                /*enter*/
+                else  if (e.keyCode == 13) {
+                    e.preventDefault();
+                    if (currFocus > -1) {
+                        if (key) key[currFocus].click();
+                    }
+                }
+            });
+
+            function addActive(key) {
+                if (!key) {
+                    return false;
+                }
+                removeActive(key);
+                if (currFocus >= key.length) {
+                    currFocus = 0;
+                }
+                if (currFocus < 0) {
+                    currFocus = (key.length - 1);
+                }
+                key[currFocus].classList.add("autocomplete-active");
+            }
+
+            function removeActive(key) {
+                for (var i = 0; i < key.length; i++) {
+                    key[i].classList.remove("autocomplete-active");
+                }
+            }
+
+            function closeAllList(elem) {
+                var x = document.getElementsByClassName("autocomplete-items");
+                for (var i = 0; i < x.length; i++) {
+                    if (elem != x[i] && elem != inp) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+
+            document.addEventListener("click", function(e) {
+                closeAllList(e.target);
+            });
+        }
+
+        var storeList = [
+            "宋媽媽火鍋麵", "韓流過境", "老闆屬狗", "阿德叔叔", "米樂", "紅飯捲", "武鋯食堂", "香廣珍燒臘", "阿花蕎麥麵",
+            "精美自助餐", "府城南香", "池上木片便當", "福星廣東粥", "家和素食", "ChickWay", "禾苗素食", "奶油廚房", "老牌張豬腳",
+            "羅本家咖哩", "蔬饗樂", "大稻埕魯肉飯", "九月茶餐廳", "太春小館", "斑魚火作", "綠米", "精美自助餐", "府城南香", "蔬饗樂",
+            "食彩櫻", "八珍", "帶便當", "揪食棧", "松品烏龍麵", "和妹麵食", "韓食村", "雀拾", "洺町日料", "五雞盒飯", "卡洛狸",
+            "廷好餐盒", "池上木片便當", "知己知米", "阿福號三明治", "MF Life", "咖哩給給", "日日食事", "BT Burger",
+            "瑞哥雞肉飯(民生)", "得意排骨", "三禾自助餐", "瑞哥雞肉飯(信義店)", "給力盒子(世貿店)", "給力盒子(松菸店)"  
+        ];
+
+        autocomplete(document.getElementById("searchInput"), storeList);
+    </script>
+
+    <!--card-slider-->
+    <!-- <script>
+        var items = document.querySelectorAll(".carousel .carousel-item")
+
+        items.forEach((elem) => {
+            const minPerSlide = 1;
+            var next = elem.nextElementSibling
+
+            for (var i = 1; i < minPerSlide; i++) {
+                if (!next) {
+                next = items[0]
+                }
+
+                var cloneChild = next.cloneNode(true)
+                elem.appendChild(cloneChild.children[0])
+                next = next.nextElementSibling
+            }
+        })
+    </script>     -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</html>

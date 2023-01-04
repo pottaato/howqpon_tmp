@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>[COPY]2.0 main</title> 
+        <title>店家訂單網頁 2.0</title> 
         <!-- Favicon -->
         <link rel="icon" href="https://foodz.howqpon.com/images/howqpon.ico" type="image/x-icon" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
@@ -234,14 +234,85 @@
             .class-offset::before {
                 display: block;
                 width: 100%;
-                height: 160px;
-                margin-top: -160px;
+                height: 162px;
+                margin-top: -162px;
                 content: "hello howqpon";
                 visibility: hidden;
 
             }
 
             .icon-fb:hover {
+                cursor: pointer;
+            }
+
+            .more-info-button {
+                position: absolute;
+                top: 20px;
+                right: 0;
+                background-color: #ff6600;
+                color: #fff;
+                padding: .3rem;
+                font-weight: bold;
+                box-shadow: 5px 5px 10px #000;
+                border-bottom-left-radius: .5rem;
+                cursor: pointer;
+            }
+
+            .fav-button {
+                color: #38BA8F;
+            }
+
+            .fav-button:hover {
+                cursor: pointer;
+                color: crimson;
+            }
+
+            .fav-button:active {
+                color: brown;
+            }
+
+            .store-title:hover {
+                text-shadow: 1px 1px 1px #aaa;
+                cursor: pointer;
+            }
+
+            a:hover {
+                cursor: pointer;
+            }
+
+            .checkoutmodal-back-button {
+                color: #888;
+                border: 1px solid #888;
+                background-color: #fff;
+            }
+
+            .checkoutmodal-back-button:hover {
+                background-color: #888;
+                color: #fff;
+            }
+
+            .checkoutmodal-nextstep-button {
+                color: #38BA8F;
+                border: 1px solid #38BA8F;
+                background-color: #fff;
+                border-radius: 0.5rem;
+            }
+
+            .checkoutmodal-nextstep-button:hover {
+                background-color: #38BA8F;
+                color: #fff;
+            }
+
+            .checkoutmodal-reg-button:hover {
+                transform: scale(1.2);
+            }
+
+            .user-button {
+                color: #38BA8F;
+            }
+
+            .user-button:hover {
+                color: darkgreen;
                 cursor: pointer;
             }
         </style>
@@ -251,12 +322,18 @@
         <div class="fixed-top">
             <div class="d-flex justify-content-between top-tab">
                 <!--car (to be animated)-->
-                <div> 
+                <!-- <div> 
                     <img class="animate__animated animate__fadeInRight" 
                         width="75rem" height="75rem" src="new-mengbear.png" alt="mengbear"/>
+                </div> -->
+                <div>
+                    <a href="https://foodz.howqpon.com/login.html?r=104&openExternalBrowser=1"> <!--to be modified-->
+                        <img src="user_profile_default.png" width="55rem" height="55rem" alt="user_profile_pic_default"
+                        style="border-radius: 50%;">
+                    </a>
                 </div>
                 <!--logo-->
-                <div style="object-fit: contain; padding-right: 15px;">
+                <div style="object-fit: contain; ">
                     <img class="logo-img" src="howqpon_logo.png"/>
                 </div>
                 <div>
@@ -435,13 +512,117 @@
                                 </div>
                             </div>
                             <div class="col-md-5 col-5 d-grid gap-2 mx-auto">
-                                <button type="button" class="btn btn-success btn-lg fs-3" style="padding: 0.4rem; margin: 0px;">訂單確認</button>
+                                <button type="button" class="btn btn-success btn-lg fs-3"
+                                data-bs-toggle="modal" data-bs-target="#ads" style="padding: 0.4rem; margin: 0px;">訂單確認</button>
                             </div>
                         </div>
                     </div>
                 </div> <!--/offcanvas-->
             </div> <!--/row-->
         </div> <!--/fixed-top-->
+
+        <!--modal-->
+        <!--checkout modal-->
+        <div class="modal fade" id="ads" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="adsContent" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title text-center" id="adsContent">等等！</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <h1 class="fw-normal text-center px-4 py-3">訂單數量至少8個才可以送喔～</h1>
+                        <button type="button" class="btn px-2 py-2 checkoutmodal-back-button">
+                            <h5 class="mb-0" data-bs-dismiss="modal">回看菜單</h5>
+                        </button>
+                    </div>
+
+
+                    <!--to be modified-->
+                    <!-- <h1 class="lead text-center mb-4">給您推薦其他客人喜歡加購的食品：</h1>
+                    <div class="mb-3 px-0">
+                        <div class="row row-cols-3 d-flex justify-content-evenly">
+                            <div class="col">
+                                <div style="border: 1px solid #aaa; min-height: 100px; width: 100%;">
+                                    <div>item 1</div>
+                                    <button type="button" class="btn btn-success mt-4 ms-2">
+                                        <i class="fa-sharp fa-solid fa-cart-plus" style="color:#fff"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col" style="max-height: 100px;">
+                                <div style="border: 1px solid #aaa; min-height: 100px; width: 100%;">
+                                    <div>item 2</div>
+                                    <button type="button" class="btn btn-success mt-4 ms-2">
+                                        <i class="fa-sharp fa-solid fa-cart-plus" style="color:#fff"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col" style="max-height: 100px;">
+                                <div style="border: 1px solid #aaa; min-height: 100px; width: 100%;">
+                                    <div>item 3</div>
+                                    <button type="button" class="btn btn-success mt-4 ms-2">
+                                        <i class="fa-sharp fa-solid fa-cart-plus" style="color:#fff"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-cols-1 d-flex justify-content-start mt-2">
+                            <div class="fw-lead text-muted">
+                                <a class="text-muted" data-bs-dismiss="modal">回看菜單</a>
+                            </div></a>
+                        </div>
+                    </div> -->
+
+                    <!-- <img src="winter_event.jpg" style="display: block; max-height: 450px; width: 100%;">
+                    <figcaption>活動説明;活動説明;活動説明;活動説明;活動説明;活動説明;</figcaption>
+                    <button type="button" class="btn btn-success mt-2 mb-4">
+                        <i class="fa-sharp fa-solid fa-cart-plus" style="color:#fff"></i>&nbsp;立刻加入購物車
+                    </button> -->
+
+                    <!--優惠捲-->
+                    <!-- <div class="row row-cols-2 mb-4">
+                        <div class="col-3 pt-2">優惠捲:</div>
+                        <div class="col-9">
+                            <select class="form-select">
+                                <option selected>無</option>
+                                <option>買一送一</option>
+                                <option>優酪乳&nbsp;&plus;30NTD</option>
+                            </select>
+                        </div>
+                    </div> -->
+
+
+                    <div class="row text-center">
+                        <div class="col">
+                            <div class="pb-2">
+                                <h5>註冊綁定/填資料有很多好處喔喔喔喔喔喔喔喔喔喔喔喔喔喔喔喔喔喔喔喔喔喔喔</h5>
+                            </div>
+                            <button class="btn btn-lg fs-2 fw-bold px-5 mb-2 checkoutmodal-reg-button" 
+                            style="background-color:  #38ba8f; color: #fff;">
+                                給我註冊綁定！！
+                            </button>
+                            <p class="mb-2">OR</p>
+                            <button class="btn btn-lg fs-2 fw-bold px-5 mb-2 checkoutmodal-reg-button" 
+                            style="background-color: #38BA8F; color: #fff;">
+                                給我填資料！！
+                            </button>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn checkoutmodal-nextstep-button">
+                        <h3 class="px-4 pt-2">
+                            進行訂單確認
+                        </h3>
+                    </button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!--/modal-->
 
         <header>
             <!--title card-->
@@ -452,11 +633,56 @@
                     <img src="jiu-yue-cha.jpg" alt="九月茶餐廳.jpg" class="w-100" 
                     style="width: 100%; height: 357px; object-fit: cover;" /> <!--之後要改-->
                 </picture>
-                <!--/bg img-->
-                <div class="mask" style="background-color: rgba(0, 0, 0, 0.2)">
+                <!--mask-->
+                <div class="mask" style="background-color: rgba(0, 0, 0, 0.2);">
+                    <!--more info button-->
+                    <div class="more-info-button">
+                        <div data-bs-toggle="offcanvas" data-bs-target="#moreInfo" aria-controls="moreInfo">
+                            <i class="fa-solid fa-eye"></i>&nbsp;店家介紹
+                        </div>
+                    </div>
+                    <!--/more info button-->
+                    <!--more info offcanvas-->
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="moreInfo" aria-labelledby="moreInfoHeader" style="color: #000;">
+                        <div class="offcanvas-header mt-3">
+                            <h3 class="offcanvas-title" id="moreInfoHeader">店家介紹</h3>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <hr class="mb-1">
+                        <div class="offcanvas-body">
+                            <div class="container">
+                                <img src="songma-intro.png" width="100%" height="auto">
+                                <div class="d-flex justify-content-start my-3 lead">
+                                    宋媽媽火鍋麵起源於晴光市場<br>菜單非常多樣化、製作過程非常精緻
+                                    <br>是好客萌合作的❤️第一家店❤️宋媽媽早期單獨支撐麵店、無力自行外送
+                                    <br>在和好客萌的合作下
+                                    <br>三個二十多歲的女孩
+                                    <br>騎著共享單車 為宋媽媽拓展市場
+                                    <br>最後火鍋麵終於獲得許多主顧
+                                    <br>許多客人也紛紛給予好評
+                                    <br>而好客萌也有了一支屬於自己的外送騎士車隊
+                                    <br>-
+                                    <br>宋媽媽火鍋麵一直是在地饕客的最愛
+                                    <br>從牛奶起司鍋麵、滷虱目魚肚飯、各式口味的丼飯
+                                    <br>在一家店就能滿足不同天不同心情的口味需求
+                                    <br>每一道菜都是宋媽媽親手研製的味道
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-4 mb-2">
+                                <button type="button" class="btn btn-success">
+                                    <h3>可以加網紅介紹的連結</h3>
+                                </button>
+                            </div>
+                        </div>
+                    </div> 
+                    <!--/offcanvas-->
+                    <!--title card content-->
                     <div class="d-flex justify-content-center align-items-center h-100">
                         <div class="text-white text-center">
-                            <h1 class="display-4 fw-bolder">九月茶餐廳</h1> <!--之後要改-->
+                            <h1 class="display-4 fw-bolder" 
+                            data-bs-toggle="offcanvas" data-bs-target="#moreInfo" aria-controls="moreInfo">
+                                <u class="store-title">九月茶餐廳</u>
+                            </h1> <!--之後要改-->
                             <p class="lead fw-normal mb-0"><strong>公休日：無公休日</strong></p> <!--之後要改-->
                             <div class="row mt-3 ms-1 me-1">
                                 <div class="col">
@@ -1019,11 +1245,65 @@
             </div>
         </div>
 
+        <!--modal-->
+        <!--onload modal-->
+        <div class="modal fade" id="fullOrder" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="adsContent" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- <h1 class="modal-title text-center fw-bold" id="adsContent">OHNO~滿單了 QAQ</h1> -->
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row row-cols-1">
+                            <div class="col d-flex justify-content-center">
+                                <h1 class="fw-bold">OHNO~滿單了 QAQ</h1>
+                            </div>
+                        </div>
+                        <div class="row row-cols-1 mb-3 pb-3">
+                            <div class="col d-flex justify-content-center">
+                                <div class="fs-4">
+                                    <i class="fa-solid fa-heart fav-button"></i>
+                                </div>
+                                <div class="fs-4">
+                                    &nbsp;加入收藏&plus;
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-cols-3 d-flex justify-content-evenly">
+                            <div class="col">
+                                <div style="border: 1px solid black; min-height: 100px; width: 100%;">
+                                    store 1
+                                </div>
+                            </div>
+                            <div class="col" style="max-height: 100px;">
+                                <div style="border: 1px solid black; min-height: 100px; width: 100%;">
+                                    store 2
+                                </div>
+                            </div>
+                            <div class="col" style="max-height: 100px;">
+                                <div style="border: 1px solid black; min-height: 100px; width: 100%;">
+                                    store 3
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-cols-1 d-flex justify-content-start mt-2">
+                            <a href="storeList-copy.html">
+                            <div class="fw-lead text-muted">
+                                回到首頁
+                            </div></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/modal-->
+
         <!--footer-->
         <footer class="footer pt-4 pb-3" style="background-color: #38BA8F;">
             <div class="container d-flex justify-content-between">
                 <div class="mt-2 ps-4 align-middle text-white text-center">
-                    <p><i class="fa fa-copyright" aria-hidden="true"></i> Howqpon &nbsp; v 2.0</p>
+                    <p><i class="fa fa-copyright" aria-hidden="true"></i> Howqpon &nbsp; v 3.0</p>
                 </div>
                 <div class="pe-4 pt-2">
                     <a href="https://www.facebook.com/howqunion">
@@ -1052,5 +1332,11 @@
                 items.style.color = "#38ba8f";
             }
         }
+
+        //若滿單show modal on page-load
+        //jquery
+        $(window).on("load", function(){
+            $("#fullOrder").modal("show");
+        });
     </script>
 </html>
